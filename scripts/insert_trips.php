@@ -1,6 +1,6 @@
 <?php
 require_once('db.php');
-	if (mysqli_connect_errno(){
+	if (mysqli_connect_errno()){
 		echo "Failed to connect to MySQL: ". mysqli_connect_errno();
 	}
 $sql="INSERT INTO trips (from_city, from_country, to_city, to_country, from_zipcode, to_zipcode, username, to_when, from_when, flight_number, flight_airline, luggage_space)
@@ -14,14 +14,5 @@ if (!mysqli_query($con,$sql))
 echo "1 record added";
 
 mysqli_close($con);
-
-
-	}
-
-
-
-
-
-
 
 ?>

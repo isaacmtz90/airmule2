@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -26,8 +28,15 @@
         <header>
             <h1>Airmule</h1>
             <?php
+           // echo ($_SESSION['user']);
+
+            
+         //   echo $user;
+
+
                 if (isset($_SESSION['user'])){
-                    echo "<div class='logged'><div class='photo'><img src='img/small.jpg' height='40'></div><p>Cristian Garner</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='logout.php' class='logout'>Logout</a></div>";
+                    $user = json_decode($_SESSION['user']);
+                    echo "<div class='logged'><div class='photo'><img src='img/small.jpg' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
                 }else{
                     echo "<a href='scripts/login.php' class='fb ir' >Sign up</a>";
                 }

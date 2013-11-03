@@ -1,6 +1,6 @@
 <?php
 require_once('db.php');
-//if (isset($_SESSION['user'])){
+if (isset($_SESSION['user'])){
 	if (mysqli_connect_errno()){
 	 	 echo "Failed to connect to MySQL: ". mysqli_connect_error();
 	  }else{
@@ -17,14 +17,12 @@ require_once('db.php');
 	  	$result = mysqli_query($con, $queryString);
 
 	  	echo json_encode($result);
-
-
 	  }
 
+}else{
 
-
-
-//}else{}
+	 header('Location: '. "index.php");
+}
 
 
 

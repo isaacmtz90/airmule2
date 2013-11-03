@@ -5,8 +5,8 @@ session_start();
   require_once('../php-sdk/facebook.php');
 
   $config = array(
-    'appId' => '464540060329220',
-    'secret' => 'f75c73e6012693bd4c2ec11782f31b53',
+    'appId' => '738099589550780', //garner: '464540060329220',
+    'secret' =>  '13ef58d035c2801bd862ade8b848cd26', //garner: f75c73e6012693bd4c2ec11782f31b53',
   );
    $_SESSION['user'];
   $facebook = new Facebook($config);
@@ -18,7 +18,8 @@ session_start();
       try {
         $user_profile = $facebook->api('/me','GET');
         $_SESSION['user'] =  json_encode($user_profile);
-        echo json_encode($user_profile);
+      // echo json_encode($user_profile);
+         header('Location: '. '../index.php');
 
       } catch(FacebookApiException $e) {
         // If the user is logged out, you can have a 

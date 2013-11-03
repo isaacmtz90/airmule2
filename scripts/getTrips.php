@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('db.php');
 if (isset($_SESSION['user'])){
 	if (mysqli_connect_errno()){
@@ -12,7 +13,7 @@ if (isset($_SESSION['user'])){
 
 	  //	echo $tocity . "  --  " .$fromcity;
 
-	  	$queryString="SELECT * FROM trips WHERE to_city LIKE '%" .$tocity."%' AND from_city LIKE '%". $fromcity."%' AND from_when betweeen curdate() and ".$date;
+	  	$queryString="SELECT * FROM trips WHERE to_city LIKE '%" .$tocity."%' AND from_city LIKE '%". $fromcity."%' " ;//AND from_when bettween curdate() and ".$date;
 
 	  	$result = mysqli_query($con, $queryString);
 
@@ -21,7 +22,7 @@ if (isset($_SESSION['user'])){
 
 }else{
 
-	 header('Location: '. "index.php");
+	 header('Location: '. "../index.php");
 }
 
 

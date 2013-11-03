@@ -38,6 +38,7 @@ session_start();
 
                 if (isset($_SESSION['user'])){
                     $user = json_decode($_SESSION['user']);
+                    $userid =   $user-> {'id'};
                     $userpic = "http://graph.facebook.com/".  $user-> {'id'} ."/picture";
                     echo "<div class='logged'><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
                 }else{
@@ -50,6 +51,7 @@ session_start();
             <h2 class="clearfix">Selecciona un destino.</h2>
             <h3>Registra tu viaje</h3>
             <form class="gray-box clearfix" method="post" action="scripts/insert_trips.php"> 
+                  <input class = "input_big" type = "text" placeholder = "$userid" id="username" name="username" />
                 <fieldset id="ida"> 
                     <legend>Pais de Origen</legend>
                     <input class = "input_big" type = "text" placeholder = "Ciudad" id="from_city" name="from_city" />

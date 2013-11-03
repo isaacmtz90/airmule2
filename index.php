@@ -45,16 +45,9 @@ session_start();
                 }
 
              ?>
-            <!-- <a href="login.php" class="fb ir" >Sign up</a>
-            <div class="logged">
-                <div class="photo"><img src="img/small.jpg" height="40"></div>
-                <p>Cristian Garner</p>
-                <div class="inbox"><a href="#" class="inbox ir"></a></div>
-                <a href="logout.php" class="logout">Logout</a>
-            </div>-->
         </header>
         <div id="main" class="clearfix">
-            <h2 class="clearfix">Encuentra un lugar.</h2>
+            <h2 class="clearfix">Selecciona un destino.</h2>
             <h3>Envia tu paquete</h3>
             <form class="gray-box clearfix">  
                 <input class = "input_big" type = "text" placeholder = "Que destino buscas?" id="to" />

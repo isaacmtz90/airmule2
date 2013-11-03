@@ -221,6 +221,9 @@ h1{
     float: right;
     margin-top: 5px;
     margin-right: 120px;
+
+
+
 }
 
 .logged img{
@@ -272,7 +275,23 @@ h1{
 }
 
 
+/*Results*/
 
+#content{
+    width: 960px;
+    height: 600px;
+    max-height: 600px;
+    background: white fixed;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    overflow: auto;
+    opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+}
 
 
 

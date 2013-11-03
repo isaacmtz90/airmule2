@@ -67,7 +67,8 @@ session_start();
             $userid= $_GET ['id'];
             require 'scripts/getProfile.php';
             $view_user = getProfile($userid);
-            echo $view_user;
+            $view_user=json_decode($view_user);
+           //echo $view_user;
 
                 if (isset($_SESSION['user'])){
                 	//echo $_SESSION['user'];
@@ -89,20 +90,21 @@ session_start();
         </header>
         <div id="main" class="clearfix">
         	<?php
-        	// if (isset($_SESSION['user'])){
+            $avg_rating = $view_user-> {'total_rating'} /  $view_user-> {'total_votes'};
+        	 if (isset($_SESSION['user'])){
         	   echo "<h2 class='clearfix'>".$view_user-> {'firstname'}." ".$view_user-> {'lastname'}."</h2>
 			            <h3>From : ". $view_user-> {'address'}.", ". $view_user-> {'city'}. ", ". $view_user-> {'country'}."</h3>
 			            <h3>Email:". $view_user-> {'email'}."</h3>
-			            <h3>Rating:". $view_user-> {'total_rating'} ." </h3>
+			            <h3>Average rating:". $avg_rating  ." </h3>
+                        h3>Rated ". $view_user-> {'total-votes'} ." times </h3>
+			           </div>"; 
+                
+        	 }else {
+               echo "<h1> You need to login to view or comment </h1>";
+             }
 
-			           </div>";
-              $userlink = "http://localhost.com/user/" . ($user->{'id'});
+               $userlink = "http://localhost.com/user/" . ($user->{'id'});
               echo "<fb:comments href='". $userlink ."' numposts='10' width='400'></fb:comments>";
-      
-        //	 }else {
-         //       echo "<h1> You need to login to view or comment </h1>";
-         //    }
-
              
              ?>
 

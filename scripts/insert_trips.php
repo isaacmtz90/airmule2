@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('db.php');
 	if (mysqli_connect_errno()){
 		echo "Failed to connect to MySQL: ". mysqli_connect_errno();
@@ -11,8 +12,10 @@ if (!mysqli_query($con,$sql))
   die('Error: ' . mysqli_error($con));
 
   }
-echo "1 record added";
-
+ 
 mysqli_close($con);
+
+header('Location: ../index.php?message="success"');
+
 
 ?>

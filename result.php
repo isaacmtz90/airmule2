@@ -28,18 +28,16 @@ session_start();
         <header>
             <h1><a href="index.php">Airmule</a></h1>
             <?php
-           // echo ($_SESSION['user']);
 
-            
-         //   echo $user;
-
-
+            require_once 'scripts/getTrips.php';
+          
+                         
                 if (isset($_SESSION['user'])){
                     $user = json_decode($_SESSION['user']);
                     $userpic = "http://graph.facebook.com/".  $user-> {'id'} ."/picture";
                     echo "<div class='logged'><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
                 }else{
-                    echo "<a href='scripts/login.php' class='fb ir' >Sign up</a>";
+                  echo "<a href='scripts/login.php' class='fb ir' >Sign up</a>";
                 }
 
              ?>
@@ -47,107 +45,68 @@ session_start();
         <div id="main" class="clearfix">
            <div id="content">
                 <ul class="clearfix">
-                    <li class="clearfix">
-                        <img src="img/small.jpg" height="120"/>
-                        <div class="info">
-                            <p>Isaac Martinez</p>
-                            <p>Desde: Tegucigalpa, Honduras</p>
-                            <p>Hasta: New York, NY</p>
-                            
-                        </div>
-                        <div class="status">
-                            <p>Fecha: 28/02/2013</p>
-                            <p>Rating</p>
-                            <p>Reviews: 50</p>
-                        </div>
-                        <a href="ver" class="ver">Ver</a>
-                        
-                    </li>
+                    <?php
 
-                     <li class="clearfix">
-                        <img src="img/small.jpg" height="120"/>
-                        <div class="info">
-                            <p>Isaac Martinez</p>
-                            <p>Desde: Tegucigalpa, Honduras</p>
-                            <p>Hasta: New York, NY</p>
-                            
-                        </div>
-                        <div class="status">
-                            <p>Fecha: 28/02/2013</p>
-                            <p>Rating</p>
-                            <p>Reviews: 50</p>
-                        </div>
-                        <a href="ver" class="ver">Ver</a>
-                        
-                    </li>
+                    $fromcity = explode("," ,$_POST["from"]);
+                    $fromcity =$fromcity[0];
+                    $tocity = explode(",", $_POST["to"]);
+                    $tocity = $tocity[0];
+                    $date = $_POST["date"];
+                       
+                       
 
-                     <li class="clearfix">
-                        <img src="img/small.jpg" height="120"/>
-                        <div class="info">
-                            <p>Isaac Martinez</p>
-                            <p>Desde: Tegucigalpa, Honduras</p>
-                            <p>Hasta: New York, NY</p>
-                            
-                        </div>
-                        <div class="status">
-                            <p>Fecha: 28/02/2013</p>
-                            <p>Rating</p>
-                            <p>Reviews: 50</p>
-                        </div>
-                        <a href="ver" class="ver">Ver</a>
-                        
-                    </li>
+                        $view_trips = getTrips($fromcity, $tocity, $date);
+                        $view_trips = json_decode ($view_trips);
 
-                     <li class="clearfix">
-                        <img src="img/small.jpg" height="120"/>
-                        <div class="info">
-                            <p>Isaac Martinez</p>
-                            <p>Desde: Tegucigalpa, Honduras</p>
-                            <p>Hasta: New York, NY</p>
-                            
-                        </div>
-                        <div class="status">
-                            <p>Fecha: 28/02/2013</p>
-                            <p>Rating</p>
-                            <p>Reviews: 50</p>
-                        </div>
-                        <a href="ver" class="ver">Ver</a>
-                        
-                    </li>
+                        foreach ($view_trips as $tripp){
+                            $view_user_id = $tripp-> {'username'} ;
+                            $view_user;
+                            $con2=mysqli_connect("localhost","root","123456","airmule");
+                            $queryString= "SELECT * FROM users WHERE username = '" .$view_user_id."'";
 
-                     <li class="clearfix">
-                        <img src="img/small.jpg" height="120"/>
-                        <div class="info">
-                            <p>Isaac Martinez</p>
-                            <p>Desde: Tegucigalpa, Honduras</p>
-                            <p>Hasta: New York, NY</p>
+                            $result = mysqli_query($con2, $queryString);
                             
-                        </div>
-                        <div class="status">
-                            <p>Fecha: 28/02/2013</p>
-                            <p>Rating</p>
-                            <p>Reviews: 50</p>
-                        </div>
-                        <a href="ver" class="ver">Ver</a>
-                        
-                    </li>
+                            while($row = mysqli_fetch_array($result)){
+                                //echo json_encode($row);
+                                $view_user= json_encode($row);
+                                              
+                            } 
 
-                     <li class="clearfix">
-                        <img src="img/small.jpg" height="120"/>
-                        <div class="info">
-                            <p>Isaac Martinez</p>
-                            <p>Desde: Tegucigalpa, Honduras</p>
-                            <p>Hasta: New York, NY</p>
+                           $view_user=json_decode($view_user);
+
+                           // echo $view_user->{'firstname'};
+
+                             mysqli_close($con2);
+                              // echo "---USERNAME-----" . json_encode($tripp);
+                           $userpic = "http://graph.facebook.com/".  $tripp-> {'username'} ."/picture";
+                           $userid= $tripp-> {'username'};
+                           $username = $view_user-> {'firstname'}." ".$view_user-> {'lastname'};
+                           $trip_from = $tripp-> {'from_city'}. " ".  $tripp-> {'from_country'};
+                           $trip_to = $tripp-> {'to_city'}. " ".  $tripp-> {'to_country'};
+                           $trip_date = $tripp-> {'from_when'};
+                           $user_rating = $view_user->{'total_rating'} / $view_user-> {'total_votes'};
+                           $user_reviews = $view_user-> {'total_votes'};
+                       echo " <li class='clearfix'>
+                            <img src='$userpic' height='120'/>
+                            <div class='info'>
+                                <p>$username</p>
+                                <p>Desde:$trip_from</p>
+                                <p>Hasta: $trip_to</p>
+                                
+                            </div>
+                            <div class='status'>
+                                <p>Fecha:$trip_date</p>
+                                <p>Rating: $user_rating</p>
+                                <p>Reviews: $user_reviews</p>
+                            </div>
+                            <a href='profile?id=$userid' class='ver'>Ver</a>
                             
-                        </div>
-                        <div class="status">
-                            <p>Fecha: 28/02/2013</p>
-                            <p>Rating</p>
-                            <p>Reviews: 50</p>
-                        </div>
-                        <a href="ver" class="ver">Ver</a>
-                        
-                    </li>
+                        </li>";
+                        }
+
+
+                    ?>
+
                 </ul>
            </div>
         </div>

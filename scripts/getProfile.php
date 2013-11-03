@@ -12,8 +12,10 @@ require_once('db.php');
 	  	$result = mysqli_query($con, $queryString);
 
 	  	while($row = mysqli_fetch_array($result)){
-	  		return json_encode($row);
 	  		//echo json_encode($row);
+	  		mysqli_close($con);
+	  		return json_encode($row);
+	  		
 	  	}
 
 	  	

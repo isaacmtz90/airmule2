@@ -49,7 +49,7 @@ session_start();
         <div id="main" class="clearfix">
             <h2 class="clearfix">Selecciona un destino.</h2>
             <h3>Envia tu paquete</h3>
-            <form class="gray-box clearfix" method="post" action="scripts/getTrips.php">  
+            <form class="gray-box clearfix" method="post" action="result.php">  
                 <input class = "input_big" type = "text" placeholder = "Que destino buscas?" id="to" name="to" />
                 <input class = "input_big" type = "text" placeholder = "De donde?" id="from" name="from" />
                 <input class = "input_big" type = "text" placeholder = "Cuando?" id="date" name="date" readonly />

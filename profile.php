@@ -94,7 +94,7 @@ session_start();
              $view_userpic = "http://graph.facebook.com/".  $view_user-> {'username'} ."/picture";
             $avg_rating = $view_user-> {'total_rating'} /  $view_user-> {'total_votes'};
 
-        	 if (isset($_SESSION['user'])){
+        //	 if (isset($_SESSION['user'])){
         	   echo "<div id='content'><div class='photo'><img src='".  $view_userpic. "' height='100'></div><h2 class='clearfix'>".$view_user-> {'firstname'}." ".$view_user-> {'lastname'}."</h2>
 			            <h3>De : ". $view_user-> {'address'}.", ". $view_user-> {'city'}. ", ". $view_user-> {'country'}."</h3>
 			            <h3>Email:". $view_user-> {'email'}."</h3>
@@ -103,9 +103,9 @@ session_start();
                          $userlink = "http://localhost.com/user/" . ($user->{'id'});
               echo "<fb:comments href='". $userlink ."' numposts='10' width=''></fb:comments>   </div>  </div>"; 
                 
-        	 }else {
-               echo "<h1>Tienes que loguearte para ver los comentarios </h1>";
-             }
+       // 	 }else {
+      //         echo "<h1>Tienes que loguearte para ver los comentarios </h1>";
+       //      }
 
 
              

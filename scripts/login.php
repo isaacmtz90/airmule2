@@ -19,7 +19,9 @@ session_start();
         $user_profile = $facebook->api('/me','GET');
         $_SESSION['user'] =  json_encode($user_profile);
       // echo json_encode($user_profile);
-         header('Location: '. '../index.php');
+         session_write_close();
+         header('Location: '. '../profile.php');
+
 
       } catch(FacebookApiException $e) {
         // If the user is logged out, you can have a 

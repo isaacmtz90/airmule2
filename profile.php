@@ -97,17 +97,18 @@ session_start();
         	<?php
              $view_userpic = "http://graph.facebook.com/".  $view_user-> {'username'} ."/picture";
             $avg_rating = $view_user-> {'total_rating'} /  $view_user-> {'total_votes'};
-
+            $emailto =  $view_user-> {'email'};
             echo "<div id='content' class='profile'><div class='photo'><img src='".  $view_userpic. "' height='100'></div><h2 class='clearfix'>".$view_user-> {'firstname'}." ".$view_user-> {'lastname'}."</h2>
                         <h3>De: ". $view_user-> {'address'}.", ". $view_user-> {'city'}. ", ". $view_user-> {'country'}."</h3>
                         <h3>Correo: ". $view_user-> {'email'}."</h3>
                         <h3>Rating: ". $avg_rating  ." </h3>
-                        <h3>Calificado ". $view_user-> {'total_votes'} ." veces </h3><a href='#' class='button' style='margin-left:185px;'>Calificar</a> <a href='#' class='button' style='margin-left:45px;'>Contactar</a>";
+                        <h3>Calificado ". $view_user-> {'total_votes'} ." veces </h3><a href='mailto: $emailto' class='button' style='margin-left:30px; display:block'>Contactar</a>";
             
-                        echo " <div class='rating' data-average='3' data-id='1'></div>";
-
+                      
 
         	 if (isset($_SESSION['user'])){
+                      echo "<div id='ratebox'> <div class='rating' data-average='3' data-id='1'></div> <h4 id='rate-msg' style='display:none;color:red'>Gracias por su calificacion</h4></div>";
+
                          $userlink = "http://localhost.com/user/" . ($user->{'id'});
                         echo "<fb:comments href='". $userlink ."' numposts='10' width=''></fb:comments>  </div>  </div>"; 
                 
@@ -138,7 +139,7 @@ session_start();
                       type: "POST",
                       url: "../airmule2/scripts/addRating.php",
                       data: {userid: username,rating: rate},
-                      success: function (){alert("Thanks for your rating");}
+                      success: function (){$("#rate-msg").show()}
                       
                     });
          

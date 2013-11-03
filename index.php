@@ -25,13 +25,21 @@
         <!-- Add your site or application content here -->
         <header>
             <h1>Airmule</h1>
-            <!-- <a href="login.php" class="fb ir" >Sign up</a>-->
+            <?php
+                if (isset($_SESSION['user'])){
+                    echo "<div class='logged'><div class='photo'><img src='img/small.jpg' height='40'></div><p>Cristian Garner</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='logout.php' class='logout'>Logout</a></div>";
+                }else{
+                    echo "<a href='scripts/login.php' class='fb ir' >Sign up</a>";
+                }
+
+             ?>
+            <!-- <a href="login.php" class="fb ir" >Sign up</a>
             <div class="logged">
                 <div class="photo"><img src="img/small.jpg" height="40"></div>
                 <p>Cristian Garner</p>
                 <div class="inbox"><a href="#" class="inbox ir"></a></div>
                 <a href="logout.php" class="logout">Logout</a>
-            </div>
+            </div>-->
         </header>
         <div id="main" class="clearfix">
             <h2 class="clearfix">Encuentra un lugar.</h2>

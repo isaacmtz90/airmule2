@@ -5,8 +5,8 @@ session_start();
   require_once('../php-sdk/facebook.php');
 
   $config = array(
-    'appId' => '738099589550780',
-    'secret' => '13ef58d035c2801bd862ade8b848cd26',
+    'appId' => '464540060329220',
+    'secret' => 'f75c73e6012693bd4c2ec11782f31b53',
   );
    $_SESSION['user'];
   $facebook = new Facebook($config);

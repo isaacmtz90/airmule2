@@ -61,7 +61,7 @@ session_start();
                         foreach ($view_trips as $tripp){
                             $view_user_id = $tripp-> {'username'} ;
                             $view_user;
-                            $con2=mysqli_connect("localhost","root","123456","airmule");
+                            $con2=mysqli_connect("localhost","root","root","airmule");
                             $queryString= "SELECT * FROM users WHERE username = '" .$view_user_id."'";
 
                             $result = mysqli_query($con2, $queryString);
@@ -81,8 +81,8 @@ session_start();
                            $userpic = "http://graph.facebook.com/".  $tripp-> {'username'} ."/picture";
                            $userid= $tripp-> {'username'};
                            $username = $view_user-> {'firstname'}." ".$view_user-> {'lastname'};
-                           $trip_from = $tripp-> {'from_city'}. " ".  $tripp-> {'from_country'};
-                           $trip_to = $tripp-> {'to_city'}. " ".  $tripp-> {'to_country'};
+                           $trip_from = $tripp-> {'from_city'}. ", ".  $tripp-> {'from_country'};
+                           $trip_to = $tripp-> {'to_city'}. ", ".  $tripp-> {'to_country'};
                            $trip_date = $tripp-> {'from_when'};
                            $user_rating = $view_user->{'total_rating'} / $view_user-> {'total_votes'};
                            $user_reviews = $view_user-> {'total_votes'};
@@ -99,7 +99,7 @@ session_start();
                                 <p>Rating: $user_rating</p>
                                 <p>Reviews: $user_reviews</p>
                             </div>
-                            <a href='profile?id=$userid' class='ver'>Ver</a>
+                            <a href='profile.php?id=$userid' class='ver'>Ver</a>
                             
                         </li>";
                         }

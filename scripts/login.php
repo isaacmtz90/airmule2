@@ -20,7 +20,7 @@ session_start();
         $_SESSION['user'] =  json_encode($user_profile);
       // echo json_encode($user_profile);
          session_write_close();
-         header('Location: '. '../profile.php');
+         header('Location: '. '../index.php');
 
 
       } catch(FacebookApiException $e) {

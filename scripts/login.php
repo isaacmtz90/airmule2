@@ -16,8 +16,6 @@ session_start();
        // We have a user ID, so probably a logged in user.
       // If not, we'll get an exception, which we handle below.
       try {
-
-
         $user_profile = $facebook->api('/me','GET');
         $_SESSION['user'] =  json_encode($user_profile);
         echo json_encode($user_profile);

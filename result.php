@@ -26,7 +26,7 @@ session_start();
 
         <!-- Add your site or application content here -->
         <header>
-            <h1>Airmule</h1>
+            <h1><a href="index.php">Airmule</a></h1>
             <?php
            // echo ($_SESSION['user']);
 
@@ -46,10 +46,107 @@ session_start();
         </header>
         <div id="main" class="clearfix">
            <div id="content">
-                <ul>
-                    <li>
-                        <img src="" />
+                <ul class="clearfix">
+                    <li class="clearfix">
+                        <img src="img/small.jpg" height="120"/>
+                        <div class="info">
+                            <p>Isaac Martinez</p>
+                            <p>Desde: Tegucigalpa, Honduras</p>
+                            <p>Hasta: New York, NY</p>
+                            
+                        </div>
+                        <div class="status">
+                            <p>Fecha: 28/02/2013</p>
+                            <p>Rating</p>
+                            <p>Reviews: 50</p>
+                        </div>
+                        <a href="ver" class="ver">Ver</a>
+                        
+                    </li>
 
+                     <li class="clearfix">
+                        <img src="img/small.jpg" height="120"/>
+                        <div class="info">
+                            <p>Isaac Martinez</p>
+                            <p>Desde: Tegucigalpa, Honduras</p>
+                            <p>Hasta: New York, NY</p>
+                            
+                        </div>
+                        <div class="status">
+                            <p>Fecha: 28/02/2013</p>
+                            <p>Rating</p>
+                            <p>Reviews: 50</p>
+                        </div>
+                        <a href="ver" class="ver">Ver</a>
+                        
+                    </li>
+
+                     <li class="clearfix">
+                        <img src="img/small.jpg" height="120"/>
+                        <div class="info">
+                            <p>Isaac Martinez</p>
+                            <p>Desde: Tegucigalpa, Honduras</p>
+                            <p>Hasta: New York, NY</p>
+                            
+                        </div>
+                        <div class="status">
+                            <p>Fecha: 28/02/2013</p>
+                            <p>Rating</p>
+                            <p>Reviews: 50</p>
+                        </div>
+                        <a href="ver" class="ver">Ver</a>
+                        
+                    </li>
+
+                     <li class="clearfix">
+                        <img src="img/small.jpg" height="120"/>
+                        <div class="info">
+                            <p>Isaac Martinez</p>
+                            <p>Desde: Tegucigalpa, Honduras</p>
+                            <p>Hasta: New York, NY</p>
+                            
+                        </div>
+                        <div class="status">
+                            <p>Fecha: 28/02/2013</p>
+                            <p>Rating</p>
+                            <p>Reviews: 50</p>
+                        </div>
+                        <a href="ver" class="ver">Ver</a>
+                        
+                    </li>
+
+                     <li class="clearfix">
+                        <img src="img/small.jpg" height="120"/>
+                        <div class="info">
+                            <p>Isaac Martinez</p>
+                            <p>Desde: Tegucigalpa, Honduras</p>
+                            <p>Hasta: New York, NY</p>
+                            
+                        </div>
+                        <div class="status">
+                            <p>Fecha: 28/02/2013</p>
+                            <p>Rating</p>
+                            <p>Reviews: 50</p>
+                        </div>
+                        <a href="ver" class="ver">Ver</a>
+                        
+                    </li>
+
+                     <li class="clearfix">
+                        <img src="img/small.jpg" height="120"/>
+                        <div class="info">
+                            <p>Isaac Martinez</p>
+                            <p>Desde: Tegucigalpa, Honduras</p>
+                            <p>Hasta: New York, NY</p>
+                            
+                        </div>
+                        <div class="status">
+                            <p>Fecha: 28/02/2013</p>
+                            <p>Rating</p>
+                            <p>Reviews: 50</p>
+                        </div>
+                        <a href="ver" class="ver">Ver</a>
+                        
                     </li>
                 </ul>
            </div>
@@ -62,13 +159,5 @@ session_start();
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
     </body>
 </html>

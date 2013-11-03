@@ -28,7 +28,7 @@ session_start();
 
         <!-- Add your site or application content here -->
         <header>
-            <h1>Airmule</h1>
+            <h1><a href="index.php">Airmule</a></h1>
             <?php
            // echo ($_SESSION['user']);
 
@@ -49,10 +49,10 @@ session_start();
         <div id="main" class="clearfix">
             <h2 class="clearfix">Selecciona un destino.</h2>
             <h3>Envia tu paquete</h3>
-            <form class="gray-box clearfix">  
-                <input class = "input_big" type = "text" placeholder = "Que destino buscas?" id="to" />
-                <input class = "input_big" type = "text" placeholder = "De donde?" id="from" />
-                <input class = "input_big" type = "text" placeholder = "Cuando?" id="datepicker" readonly />
+            <form class="gray-box clearfix" method="post" action="scripts/getTrips.php">  
+                <input class = "input_big" type = "text" placeholder = "Que destino buscas?" id="to" name="to" />
+                <input class = "input_big" type = "text" placeholder = "De donde?" id="from" name="from" />
+                <input class = "input_big" type = "text" placeholder = "Cuando?" id="date" name="date" readonly />
                 <input type="submit" value="Buscar" class="submit">
             </form>
         </div>
@@ -69,7 +69,7 @@ session_start();
             $('#from').geocomplete();
             $('#to').geocomplete();
             $.datepicker.formatDate( "dd-mm-yyyy");
-            $( "#datepicker" ).datepicker({
+            $( "#date" ).datepicker({
                 inline: true
             });
 

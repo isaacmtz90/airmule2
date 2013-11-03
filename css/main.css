@@ -206,6 +206,9 @@ h1{
     font-size: 30px;
     margin-top: 5px; 
     float: left;
+    text-indent: -99999px;
+    background: url("..img/logo.png");
+
 }
 
 .add-trip{

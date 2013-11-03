@@ -1,9 +1,7 @@
-
 <?php 
 session_start();
-
 ?>
->>>>>>> 0ed5af397edf5a465f662fa194201f5a7ffb3fd4
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -40,7 +38,8 @@ session_start();
 
                 if (isset($_SESSION['user'])){
                     $user = json_decode($_SESSION['user']);
-                    echo "<div class='logged'><div class='photo'><img src='img/small.jpg' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
+                    $userpic = "http://graph.facebook.com/".  $user-> {'id'} ."/picture";
+                    echo "<div class='logged'><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
                 }else{
                     echo "<a href='scripts/login.php' class='fb ir' >Sign up</a>";
                 }

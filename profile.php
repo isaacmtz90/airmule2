@@ -62,7 +62,7 @@ session_start();
 
         <!-- Add your site or application content here -->
         <header>
-            <h1>Airmule</h1>
+            <h1><a href="index.php">Airmule</a></h1>
             <?php
             $userid= $_GET ['id'];
             require 'scripts/getProfile.php';
@@ -74,7 +74,7 @@ session_start();
                 	//echo $_SESSION['user'];
                     $user = json_decode($_SESSION['user']);
                     $userpic = "http://graph.facebook.com/".  $user-> {'id'} ."/picture";
-                    echo "<div class='logged'><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir' ></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
+                    echo "<div class='logged'><div class='add-trip'><a href='log_trip.php'>Agregar Viaje</a></div><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
                 }else{
                     echo "<a href='scripts/login.php' class='fb ir' >Sign up</a>";
                 }
@@ -94,19 +94,18 @@ session_start();
              $view_userpic = "http://graph.facebook.com/".  $view_user-> {'username'} ."/picture";
             $avg_rating = $view_user-> {'total_rating'} /  $view_user-> {'total_votes'};
 
+            echo "<div id='content' class='profile'><div class='photo'><img src='".  $view_userpic. "' height='100'></div><h2 class='clearfix'>".$view_user-> {'firstname'}." ".$view_user-> {'lastname'}."</h2>
+                        <h3>De: ". $view_user-> {'address'}.", ". $view_user-> {'city'}. ", ". $view_user-> {'country'}."</h3>
+                        <h3>Correo: ". $view_user-> {'email'}."</h3>
 
+                        <h3>Rating: ". $avg_rating  ." </h3>
+                        <h3>Calificado ". $view_user-> {'total_votes'} ." veces </h3><a href='#' class='button' style='margin-left:185px;'>Calificar</a> <a href='#' class='button' style='margin-left:45px;'>Contactar</a>";
         	 if (isset($_SESSION['user'])){
-        	           echo "<div id='content' class='profile'><div class='photo'><img src='".  $view_userpic. "' height='100'></div><h2 class='clearfix'>".$view_user-> {'firstname'}." ".$view_user-> {'lastname'}."</h2>
-			            <h3>De: ". $view_user-> {'address'}.", ". $view_user-> {'city'}. ", ". $view_user-> {'country'}."</h3>
-			            <h3>Email: ". $view_user-> {'email'}."</h3>
-
-			            <h3>Rating: ". $avg_rating  ." </h3>
-                        <h3>Calificado ". $view_user-> {'total_votes'} ." veces </h3>";
                          $userlink = "http://localhost.com/user/" . ($user->{'id'});
-                        echo "<a href='#' class='button' style='margin-left:185px;'>Calificar</a> <a href='#' class='button' style='margin-left:85px;'>Contactar</a><fb:comments href='". $userlink ."' numposts='10' width=''></fb:comments>  </div>  </div>"; 
+                        echo "<fb:comments href='". $userlink ."' numposts='10' width=''></fb:comments>  </div>  </div>"; 
                 
        	        }else {
-                     echo "<h1>Tienes que loguearte para ver los comentarios </h1>";
+                     echo "<h3 class='comments'>Tienes que loguearte para ver los comentarios </h3></div>";
                 }
 
 

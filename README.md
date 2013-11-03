@@ -1,4 +1,4 @@
-airmule2
+AirMule
 ========
 
-suck it rails
+Datafest Hackathon application

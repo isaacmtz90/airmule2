@@ -28,14 +28,13 @@ session_start();
         <header>
             <h1><a href="index.php">Airmule</a></h1>
             <?php
-
             require_once 'scripts/getTrips.php';
           
                          
                 if (isset($_SESSION['user'])){
                     $user = json_decode($_SESSION['user']);
                     $userpic = "http://graph.facebook.com/".  $user-> {'id'} ."/picture";
-                    echo "<div class='logged'><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
+                    echo "<div class='logged'><div class='add-trip'><a href='log_trip.php'>Agregar Viaje</a></div><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
                 }else{
                   echo "<a href='scripts/login.php' class='fb ir' >Sign up</a>";
                 }
@@ -90,12 +89,12 @@ session_start();
                             <img src='$userpic' height='120'/>
                             <div class='info'>
                                 <p>$username</p>
-                                <p>Desde:$trip_from</p>
+                                <p>Desde: $trip_from</p>
                                 <p>Hasta: $trip_to</p>
                                 
                             </div>
                             <div class='status'>
-                                <p>Fecha:$trip_date</p>
+                                <p>Fecha: $trip_date</p>
                                 <p>Rating: $user_rating</p>
                                 <p>Reviews: $user_reviews</p>
                             </div>

@@ -39,7 +39,7 @@ session_start();
                 if (isset($_SESSION['user'])){
                     $user = json_decode($_SESSION['user']);
                     $userpic = "http://graph.facebook.com/".  $user-> {'id'} ."/picture";
-                    echo "<div class='logged'><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
+                    echo "<div class='logged'><div class='add-trip'><a href='log_trip.php'>Agregar Viaje</a></div><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
                 }else{
                     echo "<a href='scripts/login.php' class='fb ir' >Sign up</a>";
                 }
@@ -47,8 +47,14 @@ session_start();
              ?>
         </header>
         <div id="main" class="clearfix">
+            <?php 
+                if(isset($_GET["message"])) {
+                    echo " <h3>Viaje creado exitosamente!</h3> ";
+                }
+            ?>
             <h2 class="clearfix">Selecciona un destino.</h2>
             <h3>Envia tu paquete</h3>
+
             <form class="gray-box clearfix" method="post" action="result.php">  
                 <input class = "input_big" type = "text" placeholder = "Que destino buscas?" id="to" name="to" />
                 <input class = "input_big" type = "text" placeholder = "De donde?" id="from" name="from" />

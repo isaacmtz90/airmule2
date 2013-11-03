@@ -208,6 +208,29 @@ h1{
     float: left;
 }
 
+.add-trip{
+    float: left;
+    margin-top: 14px;
+    margin-right: 10px;
+
+}
+
+.add-trip a{
+    padding-left: 25px;
+    font-weight: bold;
+    color: #2badf3;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    background: url("../img/add.png") left -1px no-repeat;
+    background-size:20px;
+    height: 30px;
+}
+
+.add-trip a:hover{
+    color: #2bbff3;
+}
+
 .fb{
     background: url("../img/facebook.png") no-repeat;
     width: 181px;
@@ -219,15 +242,12 @@ h1{
 }
 
 .logged{
-    width: 281px;
+    width: 420px;
     height: 31px;
     display: block;
     float: right;
     margin-top: 5px;
-    margin-right: 120px;
-
-
-
+    margin-right: 80px;
 }
 
 .logged img{
@@ -364,7 +384,7 @@ h1{
     margin-left: 40px;
     border-radius: 3px;
     position: relative;
-    top: 160px;
+    top: 140px;
 
 }
 
@@ -373,12 +393,14 @@ h1{
     text-shadow: none;
     margin-top: 50px;
     margin-left: 185px;
+    font-weight: bold;
 }
 
 .profile h3{
     color: #888;
     text-shadow: none;
     margin-left: 185px;
+    font-size: 20px;
 }
 
 .button {
@@ -413,6 +435,25 @@ h1{
     opacity:1;
     filter:alpha(opacity=100);
 }
+
+legend{
+    color:#fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.9);
+    margin-bottom: 10px;
+    padding-top:10px;
+    display: block;
+}
+
+.trips .submit{
+    margin-top: 10px;
+}
+
+.comments {
+    margin-top: 250px;
+}
+
 
 /*Facebook*/
 .fb_iframe_widget,

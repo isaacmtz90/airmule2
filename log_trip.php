@@ -1,5 +1,13 @@
 <?php 
 session_start();
+
+if (isset($_SESSION['user'])){
+    
+}else{
+
+     header('Location: '. "index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +47,7 @@ session_start();
                 if (isset($_SESSION['user'])){
                     $user = json_decode($_SESSION['user']);
                     $userpic = "http://graph.facebook.com/".  $user-> {'id'} ."/picture";
-                    echo "<div class='logged'><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
+                    echo "<div class='logged'><div class='add-trip'><a href='log_trip.php'>Agregar Viaje</a></div><div class='photo'><img src='".  $userpic. "' height='40'></div><p>".  $user-> {'name'} ."</p><div class='inbox'><a href='#' class='inbox ir'></a></div><a href='scripts/logout.php' class='logout'>Logout</a></div>";
                 }else{
                     echo "<a href='scripts/login.php' class='fb ir' >Sign up</a>";
                 }
@@ -49,15 +57,15 @@ session_start();
         <div id="main" class="clearfix">
             <h2 class="clearfix">Selecciona un destino.</h2>
             <h3>Registra tu viaje</h3>
-            <form class="gray-box clearfix" method="post" action="scripts/insert_trips.php"> 
+            <form class="gray-box clearfix trips" method="post" action="scripts/insert_trips.php"> 
                 <fieldset id="ida"> 
-                    <legend>Pais de Origen</legend>
+                    <legend class="clearfix">Origen</legend>
                     <input class = "input_big" type = "text" placeholder = "Ciudad" id="from_city" name="from_city" />
                     <input class = "input_big" type = "text" placeholder = "Pais" id="from_country" name="from_country" />
                     <input class = "input_big" type = "text" placeholder = "Desde?" id="from_when" name="from_when"/>
                 </fieldset>
                 <fieldset id="regreso">
-                    <legend>Pais de Destino</legend>
+                    <legend>Destino</legend>
                     <input class = "input_big" type = "text" placeholder = "Ciudad" id="to_city" name="to_city" />
                     <input class = "input_big" type = "text" placeholder = "Pais" id="to_country" name="to_contry" />
                     <input class = "input_big" type = "text" placeholder = "Hasta?" id="to_when" name="to_when"/>

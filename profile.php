@@ -90,18 +90,23 @@ session_start();
         </header>
         <div id="main" class="clearfix">
         	<?php
+             $view_userpic = "http://graph.facebook.com/".  $view_user-> {'username'} ."/picture";
             $avg_rating = $view_user-> {'total_rating'} /  $view_user-> {'total_votes'};
-        	 if (isset($_SESSION['user'])){
-        	   echo "<h2 class='clearfix'>".$view_user-> {'firstname'}." ".$view_user-> {'lastname'}."</h2>
+        	// if (isset($_SESSION['user'])){
+        	   echo "   <div class='photo'><img src='".  $view_userpic. "' height='100'></div>
+                        <h2 class='clearfix'>".$view_user-> {'firstname'}." ".$view_user-> {'lastname'}."</h2>
 			            <h3>From : ". $view_user-> {'address'}.", ". $view_user-> {'city'}. ", ". $view_user-> {'country'}."</h3>
 			            <h3>Email:". $view_user-> {'email'}."</h3>
 			            <h3>Average rating:". $avg_rating  ." </h3>
-                        h3>Rated ". $view_user-> {'total-votes'} ." times </h3>
-			           </div>"; 
+                        <h3>Rated ". $view_user-> {'total_votes'} ." times </h3>";
+                         $userlink = "http://localhost.com/user/" . ($user->{'id'});
+                          echo"</div>"; 
+              echo "<fb:comments href='". $userlink ."' numposts='10' width='400'></fb:comments>";
+             
                 
-        	 }else {
-               echo "<h1> You need to login to view or comment </h1>";
-             }
+        //	 }else {
+          //     echo "<h1> You need to login to view or comment </h1>";
+            // }
 
                $userlink = "http://localhost.com/user/" . ($user->{'id'});
               echo "<fb:comments href='". $userlink ."' numposts='10' width='400'></fb:comments>";

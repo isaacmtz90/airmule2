@@ -1,6 +1,6 @@
 <?php
 // Create connection
-$con=mysqli_connect("localhost","root","123456","airmule");
+$con=mysqli_connect("localhost","root","root","airmule");
 
 // Check connection
 if (mysqli_connect_errno($con))

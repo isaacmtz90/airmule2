@@ -54,6 +54,10 @@ session_start();
         <link rel="stylesheet" href="css/main.css">
         <link href="css/cupertino/jquery-ui-1.10.3.custom.css" rel="stylesheet">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+       
+       
+
+
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -97,20 +101,13 @@ session_start();
             echo "<div id='content' class='profile'><div class='photo'><img src='".  $view_userpic. "' height='100'></div><h2 class='clearfix'>".$view_user-> {'firstname'}." ".$view_user-> {'lastname'}."</h2>
                         <h3>De: ". $view_user-> {'address'}.", ". $view_user-> {'city'}. ", ". $view_user-> {'country'}."</h3>
                         <h3>Correo: ". $view_user-> {'email'}."</h3>
-
-<<<<<<< HEAD
-        	// if (isset($_SESSION['user'])){
-        	   echo "<div id='content' class='profile'><div class='photo'><img src='".  $view_userpic. "' height='100'></div><h2 class='clearfix'>".$view_user-> {'firstname'}." ".$view_user-> {'lastname'}."</h2>
-			            <h3>De: ". $view_user-> {'address'}.", ". $view_user-> {'city'}. ", ". $view_user-> {'country'}."</h3>
-			            <h3>Email: ". $view_user-> {'email'}."</h3>
-
-			            <h3>Rating: ". $avg_rating  ." </h3>
-                        <h3>Calificado ". $view_user-> {'total_votes'} ." veces </h3>";
-=======
                         <h3>Rating: ". $avg_rating  ." </h3>
                         <h3>Calificado ". $view_user-> {'total_votes'} ." veces </h3><a href='#' class='button' style='margin-left:185px;'>Calificar</a> <a href='#' class='button' style='margin-left:45px;'>Contactar</a>";
+            
+                        echo " <div class='rating' data-average='3' data-id='1'></div>";
+
+
         	 if (isset($_SESSION['user'])){
->>>>>>> a2d16988589c3fb5f814858afc0f896083023e42
                          $userlink = "http://localhost.com/user/" . ($user->{'id'});
                         echo "<fb:comments href='". $userlink ."' numposts='10' width=''></fb:comments>  </div>  </div>"; 
                 
@@ -123,6 +120,51 @@ session_start();
              
              ?>
 
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <link rel="stylesheet" type="text/css" href="js/jRating.jquery.css" media="screen" />
+    <!-- jQuery files -->
+   
+    <script type="text/javascript" src="js/jRating.jquery.js"></script>
+        <script type ="text/javascript">
+            $().ready(function(){
+                 var username =getURLParameter("id");
+                var data = {userid:"ravi",rating:"31"};
+                 $(".rating").jRating({
+         step:true,
+         rateMax :5,
+         length : 5, // nb of stars
+         onClick : function(element,rate) {
+            $.ajax({
+                      type: "POST",
+                      url: "../airmule2/scripts/addRating.php",
+                      data: {userid: username,rating: rate},
+                      success: function (){alert("Thanks for your rating");}
+                      
+                    });
+         
+        }
+       });
+           
+           
+            
+
+
+
+
+            });
+            
+            function getURLParameter(name) {
+          
+            return decodeURI(
+                (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+            );
+        }
+
+           
+
+     </script>
         
     </body>
+    
+    
 </html>

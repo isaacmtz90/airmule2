@@ -1,0 +1,48 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 -- phpMyAdmin SQL Dump\
+-- version 3.3.9.2\
+-- http://www.phpmyadmin.net\
+--\
+-- Host: localhost\
+-- Generation Time: Nov 02, 2013 at 07:59 PM\
+-- Server version: 5.5.9\
+-- PHP Version: 5.3.6\
+\
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";\
+\
+--\
+-- Database: `airmule`\
+--\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `trips`\
+--\
+\
+CREATE TABLE `trips` (\
+  `idTrip` int(11) NOT NULL AUTO_INCREMENT,\
+  `from_city` varchar(50) NOT NULL,\
+  `from_country` varchar(50) NOT NULL,\
+  `to_city` varchar(50) NOT NULL,\
+  `to_country` varchar(50) NOT NULL,\
+  `from_zipcode` int(11) NOT NULL,\
+  `to_zipcode` int(11) NOT NULL,\
+  `username` varchar(10) NOT NULL,\
+  `to_when` datetime NOT NULL,\
+  `from_when` datetime NOT NULL,\
+  `fligt_number` varchar(10) NOT NULL,\
+  `flight_airline` varchar(20) NOT NULL,\
+  PRIMARY KEY (`idTrip`)\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;\
+\
+--\
+-- Dumping data for table `trips`\
+--\
+\
+}

@@ -30,12 +30,8 @@ CREATE TABLE `users` (\
   `password` varchar(10) NOT NULL,\
   `firstname` varchar(50) NOT NULL,\
   `lastname` varchar(50) NOT NULL,\
-  `address` varchar(200) NOT NULL,\
-  `city` varchar(50) NOT NULL,\
-  `country` varchar(50) NOT NULL,\
-  `zipcode` varchar(10) NOT NULL,\
-  `phone` varchar(10) NOT NULL,\
-  `email` varchar(50) NOT NULL,\
+  `phone` varchar(10),\
+  `email` varchar(50),\
   PRIMARY KEY (`username`)\
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='UserName Data';\
 \

@@ -374,9 +374,8 @@ h1{
 }
 
 #content.profile{
-    height:670px;
-    margin-top: 10px;
-    max-height: 670px;
+    height:630px;
+    max-height: 630px;
 }
 
 .profile img{
